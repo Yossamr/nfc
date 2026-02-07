@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
@@ -54,61 +55,70 @@
         background: rgba(99, 102, 241, 0.8); 
       }
 
-      /* PDF Generation Container Styles */
-      #pdf-hidden-container {
-        position: absolute;
-        left: -9999px;
+      /* PDF Generation Container Styles - OVERLAY MODE */
+      .pdf-overlay {
+        position: fixed;
         top: 0;
-        width: 210mm; /* A4 width */
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 99999; /* Top of everything */
+        background-color: white;
+        overflow-y: auto;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .pdf-paper {
+        width: 210mm;
         min-height: 297mm;
-        background-color: white !important;
-        color: black !important;
-        padding: 20px 40px;
+        background: white;
+        color: black;
+        padding: 15mm;
         box-sizing: border-box;
-        font-family: 'Cairo', sans-serif !important;
-        z-index: -1;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Shadow to see paper boundaries during preview */
+        margin: 20px auto;
       }
 
-      #pdf-hidden-container * {
-        color: black !important;
-        border-color: #000 !important;
-      }
-
-      #pdf-hidden-container table {
+      /* Force black printing for table */
+      .pdf-paper table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
         font-size: 12px;
+        color: black !important;
       }
 
-      #pdf-hidden-container th {
-        background-color: #f3f4f6 !important; /* Light Gray */
+      .pdf-paper th {
+        background-color: #e5e7eb !important; /* Gray-200 */
+        color: black !important;
         font-weight: 800;
         text-align: right;
-        border: 2px solid #000;
-        padding: 8px;
-        -webkit-print-color-adjust: exact;
+        border: 1px solid #000 !important;
+        padding: 10px;
       }
 
-      #pdf-hidden-container td {
-        border: 1px solid #666;
+      .pdf-paper td {
+        border: 1px solid #000 !important;
         padding: 8px;
-        font-weight: 600;
+        color: black !important;
       }
       
-      #pdf-hidden-container tr:nth-child(even) {
+      .pdf-paper tr:nth-child(even) {
         background-color: #f9fafb !important;
-        -webkit-print-color-adjust: exact;
       }
 
-      /* Header Style in PDF */
       .pdf-header {
-        border-bottom: 3px solid #000;
+        border-bottom: 2px solid #000;
         padding-bottom: 10px;
         margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color: black !important;
       }
       
       /* Utilities */
@@ -127,11 +137,12 @@
     "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
     "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
     "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3",
+    "@libsql/client/": "https://esm.sh/@libsql/client@^0.17.0/"
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-BzaHWHOP.js"></script>
+  <script type="module" crossorigin src="./assets/index-B-QsPScE.js"></script>
 </head>
   <body>
     <div id="root"></div>
