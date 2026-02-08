@@ -55,15 +55,15 @@
         background: rgba(99, 102, 241, 0.8); 
       }
 
-      /* PDF Generation Container Styles - OVERLAY MODE */
+      /* PDF Generation Container Styles - A4 Portrait Specs */
       .pdf-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
-        z-index: 99999; /* Top of everything */
-        background-color: white;
+        z-index: 99999;
+        background-color: rgba(255,255,255,0.9);
         overflow-y: auto;
         padding: 0;
         margin: 0;
@@ -73,52 +73,58 @@
       }
 
       .pdf-paper {
+        /* A4 Width in mm */
         width: 210mm;
+        /* Min Height A4 */
         min-height: 297mm;
         background: white;
-        color: black;
+        color: black !important;
         padding: 15mm;
         box-sizing: border-box;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Shadow to see paper boundaries during preview */
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
         margin: 20px auto;
+        font-family: 'Cairo', sans-serif;
       }
 
-      /* Force black printing for table */
+      /* PDF Specific Table Styles */
       .pdf-paper table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
-        font-size: 12px;
+        margin-top: 10px;
+        font-size: 11px; /* Optimal reading size for A4 tables */
         color: black !important;
       }
 
       .pdf-paper th {
-        background-color: #e5e7eb !important; /* Gray-200 */
+        background-color: #f3f4f6 !important; /* Gray-100 */
         color: black !important;
         font-weight: 800;
-        text-align: right;
+        text-align: center;
         border: 1px solid #000 !important;
-        padding: 10px;
+        padding: 8px 4px;
+        white-space: nowrap;
       }
 
       .pdf-paper td {
         border: 1px solid #000 !important;
-        padding: 8px;
+        padding: 6px 4px;
         color: black !important;
+        vertical-align: middle;
       }
       
       .pdf-paper tr:nth-child(even) {
-        background-color: #f9fafb !important;
+        background-color: #fff !important; /* Keep simple for printing */
       }
 
-      .pdf-header {
-        border-bottom: 2px solid #000;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: black !important;
+      /* Ensure badges print correctly */
+      .pdf-paper .badge-unregistered {
+         background-color: #e5e7eb;
+         border: 1px solid #000;
+         color: black;
+         font-size: 9px;
+         padding: 2px 5px;
+         border-radius: 4px;
+         font-weight: bold;
       }
       
       /* Utilities */
@@ -143,9 +149,9 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-BxGzblkU.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/vendor-DL07xJTQ.js">
-  <link rel="modulepreload" crossorigin href="./assets/db-DUm3D4tr.js">
+  <script type="module" crossorigin src="./assets/index-CyhQteXg.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/vendor-CS8p4K9G.js">
+  <link rel="modulepreload" crossorigin href="./assets/db-BP3yeUk6.js">
 </head>
   <body>
     <div id="root"></div>
